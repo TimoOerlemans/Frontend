@@ -1,10 +1,6 @@
-import logo from '../logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
-import '../Components/Style.css';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
-import { useAuth0 } from '@auth0/auth0-react';
+import '../Components/Header.css';
 
 function Header() {
   
@@ -12,28 +8,17 @@ function Header() {
   <Navbar bg="dark" variant="dark" 
     sticky="top" expand="sm" collapseOnSelect>
     <Navbar.Brand>
-      <img src={logo} width="40px" height="40px" />{' '}
-        Netmatch
+      <img src="./assets/Pizza-logo.png" width="50px" height="50px" />
+        Pizza
     </Navbar.Brand>
     <Navbar.Toggle className="coloring" />
       <Navbar.Collapse>
         <Nav>
-          <NavDropdown title="Flight information">
-            <NavDropdown.Item href="/Overview">Overview</NavDropdown.Item>
-            <NavDropdown.Item href="#products/coffee">Accomodation</NavDropdown.Item>
-            <NavDropdown.Item href="#products/chocolate">Flight</NavDropdown.Item>
-            <NavDropdown.Item href="/Entryrestrictions">Entryrestrictions</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#products/promo">Insurrance & Extras</NavDropdown.Item>
-            <NavDropdown.Item href="#products/promo">Payment</NavDropdown.Item>
+          <NavDropdown title="Menu">
+            <NavDropdown.Item href="/Pizzas">Pizzas</NavDropdown.Item>
           </NavDropdown>
           <Nav.Link href="#about-us">About Us</Nav.Link>
-          <Nav.Link href="#contact-us">Contact Us</Nav.Link>
-          <Nav.Link href='/Profile'>Profile</Nav.Link>        
-          <>
-          <LoginButton />
-          <LogoutButton />
-          </>
+          <Nav.Link href="#contact-us">Contact Us</Nav.Link>       
         </Nav>
       </Navbar.Collapse>
     </Navbar>

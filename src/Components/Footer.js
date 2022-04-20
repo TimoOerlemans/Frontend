@@ -21,16 +21,15 @@ function Footer() {
     </div>
     </div>
     <div className="footer-col-2">
-    <img src="./assets/logo-philips.png"></img>
-    <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+    <img src="./assets/Pizza-logo.png"></img>
+    <p>Our goal is to give everyone the change to enjoy pizza.</p>
     </div>
     <div className="footer-col-3">
     <h3>Useful Links</h3>
     <ul>
+    <li>Privacy</li>
+    <li>Term and Conditions</li>
     <li>Coupons</li>
-    <li>Blog Post</li>
-    <li>Return Policy</li>
-    <li>Join Affiliate</li>
     </ul>
     </div>
     <div className="footer-col-4">
@@ -44,12 +43,10 @@ function Footer() {
     </div>
     </div>
     <hr></hr>
-    <p className="copyright"> Copyright 2022 - NetMatch</p>
+    <p className="copyright"> Copyright 2022 </p>
     </div>
     </div>
   )
 }
 
 export default Footer
-
-

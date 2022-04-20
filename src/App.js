@@ -4,7 +4,7 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import {BrowserRouter as Router} from 'react-router-dom';
 import { render } from '@testing-library/react';
-import { NetmatchRoutes } from './routes';
+import { FrontendRoutes } from './routes';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     <Router>
         <Header />
         <div className="App">
-        <NetmatchRoutes/>
+        <FrontendRoutes/>
         <Footer/>
         </div>
     </Router>
