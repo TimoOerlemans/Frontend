@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import '../pages/Card.css'
+import '../pages/Pizza.css';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import ProductsServices from '../services/Productservices';
-import '../Components/Style.css';
-
+import ProductServices from '../services/Productservices';
 
 class Pizzas extends Component {
   constructor(props) {
@@ -14,40 +12,41 @@ class Pizzas extends Component {
     }
   }
 
-componentDidMount(){
-  ProductsServices.getProducts().then((res) => {
+  componentDidMount(){
+  ProductServices.getProducts().then((res) => {
     this.setState({ products: res.data});
   });
-}
+  }
 
 render() {
   return (
-    <div className='Content'>
-    {this.state.products.map((product) => (             
+    <div className='Empty'>          
+    {this.state.products.map((product) => (     
 <Container>
 <Card>
-  {/* <Card.Header>{product.name}</Card.Header> */}
+<Card.Header>{ product.name }</Card.Header>
   <Card.Body>
     <blockquote className="blockquote mb-0">
     <img
      className="card-image"
      src={"./assets/overview.png"}
        alt="First slide"
-   />  
+       width="50px;"
+       height="50px;"
+       />  
+
       <p>
-        {' '}
-      Overview {''}
+        Ingredients: { product.ingredients }
       </p>
       <p>
-        {/* Price: {product.price} <br></br> */}
-        {/* Ingredients: {product.ingredients} */}
+        Price: {product.price }
       </p>
       
     </blockquote>
   </Card.Body>
 </Card>
 </Container>
-  ))}
+))}
   </div>
     )  
 }

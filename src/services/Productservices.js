@@ -7,4 +7,4 @@ class ProductServices{
         return axios.get(Product_API_BASE_URL);
     }
 }
-export default new OrderServices()
+export default new ProductServices()
