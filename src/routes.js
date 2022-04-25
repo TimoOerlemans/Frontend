@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddProduct from './pages/AddProduct';
 import Content from './pages/Content';
 import Pizzas from './pages/Pizzas';
 
@@ -10,6 +11,7 @@ export const FrontendRoutes  = () => {
         <Route exact path='/' element={<Content/>} />
         <Route exact path='/Content' element={<Content/>} />    
         <Route exact path='/Pizzas' element={<Pizzas/>} />
+        <Route exact path='/AddProduct' element={<AddProduct/>}/>
       </Routes>
     </div>
   );

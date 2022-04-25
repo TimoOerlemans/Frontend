@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
 import '../pages/Pizza.css';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import Button from "@mui/material/Button";
+import axios from "axios";
 import ProductServices from '../services/Productservices';
+import { List } from '@material-ui/core';
 
-class Pizzas extends Component {
+class Pizzas extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = {
       products: []
     }
   }
-
   componentDidMount(){
-  ProductServices.getProducts().then((res) => {
-    this.setState({ products: res.data});
-  });
-  }
+    ProductServices.getProducts().then((res) => {
+      this.setState({ products: res.data});
+    });
+    }
 
 render() {
   return (
@@ -41,7 +42,6 @@ render() {
       <p>
         Price: {product.price }
       </p>
-      
     </blockquote>
   </Card.Body>
 </Card>
