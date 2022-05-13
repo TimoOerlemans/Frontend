@@ -13,7 +13,7 @@ export default function AddProduct() {
   } = useForm();
   const onSubmit = (data) =>
     axios
-      .post("http://localhost:8080/api/v1/product", data)
+      .post("http://localhost:8080/api/v1/add")
       .then(function (response) {
         console.log(response);
       })
@@ -37,7 +37,7 @@ export default function AddProduct() {
 
           <TextField
             id="filled-basic"
-            type="number"
+            type="price"
             label="Price"
             variant="filled"
             min={1}

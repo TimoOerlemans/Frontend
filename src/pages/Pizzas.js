@@ -10,20 +10,36 @@ class Pizzas extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      products: []
+      products: [],
+      update: false
     }
+    this.getProducts = this.getProducts.bind(this)
+    this.deleteProducts = this.deleteProducts.bind(this)
+
   }
   componentDidMount(){
-    ProductServices.getProducts().then((res) => {
-      this.setState({ products: res.data});
-    });
+      this.getProducts()
     }
+
+  getProducts() {
+      ProductServices.getProducts().then((res) => {
+        this.setState({ products: res.data});
+      });
+  }
+
+  deleteProducts(productId) {
+  ProductServices.deleteProducts(productId).then(() => {
+    this.getProducts()
+  })
+
+  }
 
 render() {
   return (
     <div className='Empty'>          
-    {this.state.products.map((product) => (     
-<Container>
+      
+<div className='cardContainer'>
+{this.state.products.map((product) => (   
 <Card>
 <Card.Header>{ product.name }</Card.Header>
   <Card.Body>
@@ -43,10 +59,18 @@ render() {
         Price: {product.price }
       </p>
     </blockquote>
+    <div > 
+      <Button className="Delete" onClick={() => this.deleteProducts(product.id)}>
+        Delete
+      </Button>
+    </div>
   </Card.Body>
 </Card>
-</Container>
 ))}
+</div>
+
+
+
   </div>
     )  
 }
