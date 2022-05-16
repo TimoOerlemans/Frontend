@@ -7,6 +7,7 @@ import ProductServices from '../services/Productservices';
 import { List } from '@material-ui/core';
 
 class Pizzas extends React.Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -31,7 +32,10 @@ class Pizzas extends React.Component {
   ProductServices.deleteProducts(productId).then(() => {
     this.getProducts()
   })
+  }
 
+  selectProduct(productId){
+    alert(productId)
   }
 
 render() {
@@ -40,6 +44,7 @@ render() {
       
 <div className='cardContainer'>
 {this.state.products.map((product) => (   
+  
 <Card>
 <Card.Header>{ product.name }</Card.Header>
   <Card.Body>
@@ -59,19 +64,19 @@ render() {
         Price: {product.price }
       </p>
     </blockquote>
-    <div > 
+    <div className='Deletebtn'> 
       <Button className="Delete" onClick={() => this.deleteProducts(product.id)}>
         Delete
+      </Button>
+      <Button variant="outlined" onClick={() => this.selectProduct(product.id)}>
+        Update Item
       </Button>
     </div>
   </Card.Body>
 </Card>
 ))}
 </div>
-
-
-
-  </div>
+</div>
     )  
 }
 }

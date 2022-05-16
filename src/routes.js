@@ -3,6 +3,7 @@ import './App.css';
 import AddProduct from './pages/AddProduct';
 import Content from './pages/Content';
 import Pizzas from './pages/Pizzas';
+import UpdateProduct from './pages/UpdateProduct';
 
 export const FrontendRoutes  = () => {
   return (
@@ -12,6 +13,7 @@ export const FrontendRoutes  = () => {
         <Route exact path='/Content' element={<Content/>} />    
         <Route exact path='/Pizzas' element={<Pizzas/>} />
         <Route exact path='/AddProduct' element={<AddProduct/>}/>
+        <Route exact path='/UpdateProduct' element={<UpdateProduct/>}/>
       </Routes>
     </div>
   );

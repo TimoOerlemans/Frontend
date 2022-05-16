@@ -13,7 +13,7 @@ export default function AddProduct() {
   } = useForm();
   const onSubmit = (data) =>
     axios
-      .post("http://localhost:8080/api/v1/add")
+      .post("http://localhost:8080/api/v1/add", data)
       .then(function (response) {
         console.log(response);
       })
@@ -23,9 +23,9 @@ export default function AddProduct() {
       });
 
   return (
-    <div className="flex-child">
-      <div className="Empty">
-        <h1></h1>
+    <div className="Empty">
+      <div className="flex-child">
+
         <form onSubmit={handleSubmit(onSubmit)}>
           <TextField
             id="filled-basic"
@@ -40,8 +40,6 @@ export default function AddProduct() {
             type="price"
             label="Price"
             variant="filled"
-            min={1}
-            
             {...register("price", { required: true })}
           />
           {errors.exampleRequired && <p>This field is required</p>}
@@ -53,6 +51,7 @@ export default function AddProduct() {
             {...register("ingredients", { required: true })}
           />
           {errors.exampleRequired && <p>This field is required</p>}
+
           <div>
             <Button variant="outlined" type="submit">
               Add Item
