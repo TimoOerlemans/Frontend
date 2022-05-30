@@ -7,10 +7,16 @@ class ProductServices{
         return axios.get(Product_API_BASE_URL + "products");
     }
     saveProducts(product){
-        return axios.post(Product_API_BASE_URL + "add" + product)
+        return axios.post(Product_API_BASE_URL + "product" + product)
     }
     deleteProducts(productId) {
-        return axios.delete(Product_API_BASE_URL + "delete/" + productId)
+        return axios.delete(Product_API_BASE_URL + "products/" + productId)
+    }
+    updateProducts(product, productId) {
+        return axios.updateProducts(Product_API_BASE_URL + "product/" + productId, product)
+    }
+    getProductById(productId){
+        return axios.getProductById(Product_API_BASE_URL + "/product/" + productId)
     }
 }
 export default new ProductServices()

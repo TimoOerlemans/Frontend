@@ -13,9 +13,10 @@ export default function AddProduct() {
   } = useForm();
   const onSubmit = (data) =>
     axios
-      .post("http://localhost:8080/api/v1/add", data)
+      .post("http://localhost:8080/api/v1/product", data)
       .then(function (response) {
         console.log(response);
+        alert("New product created");
       })
       .catch(function (error) {
         console.log(error);
