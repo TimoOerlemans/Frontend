@@ -16,7 +16,7 @@ class Pizzas extends React.Component {
     }
     this.getProducts = this.getProducts.bind(this)
     this.deleteProducts = this.deleteProducts.bind(this)
-    this.updateProduct = this.updateProduct.bind(this)
+
   }
   componentDidMount(){
       this.getProducts()
@@ -34,8 +34,8 @@ class Pizzas extends React.Component {
   })
   }
 
-  updateProduct(productId){
-    this.props.history.pus('/UpdateProduct/' + productId);
+  selectProduct(productId){
+    alert(productId)
   }
 
 render() {
@@ -68,7 +68,7 @@ render() {
       <Button className="Delete" onClick={() => this.deleteProducts(product.id)}>
         Delete
       </Button>
-      <Button variant="outlined" onClick={() => this.updateProduct(product.id)}>
+      <Button variant="outlined" onClick={() => this.selectProduct(product.id)}>
         Update Item
       </Button>
     </div>
