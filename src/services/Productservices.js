@@ -4,19 +4,19 @@ const Product_API_BASE_URL = "http://localhost:8080/api/v1/";
 
 class ProductServices{
     getProducts(){
-        return axios.get(Product_API_BASE_URL + "products");
+        return axios.get(Product_API_BASE_URL + "product");
     }
     saveProducts(product){
-        return axios.post(Product_API_BASE_URL + "product" + product)
+        return axios.post(Product_API_BASE_URL + "product" + product);
     }
     deleteProducts(productId) {
-        return axios.delete(Product_API_BASE_URL + "products/" + productId)
+        return axios.delete(Product_API_BASE_URL + "product/" + productId);
     }
-    updateProducts(product, productId) {
-        return axios.updateProducts(Product_API_BASE_URL + "product/" + productId, product)
+    updateProduct(productId, product) {
+        return axios.put(Product_API_BASE_URL + "product/" + productId, product);
     }
     getProductById(productId){
-        return axios.getProductById(Product_API_BASE_URL + "/product/" + productId)
+        return axios.get(Product_API_BASE_URL + "product/" + productId);
     }
 }
 export default new ProductServices()

@@ -13,7 +13,7 @@ export const FrontendRoutes  = () => {
         <Route exact path='/Content' element={<Content/>} />    
         <Route exact path='/Pizzas' element={<Pizzas/>} />
         <Route exact path='/AddProduct' element={<AddProduct/>}/>
-        <Route exact path="/UpdateProduct" element={<UpdateProduct/>}/>
+        <Route exact path='/UpdateProduct/:productId' element={<UpdateProduct/>}/>
       </Routes>
     </div>
   );
