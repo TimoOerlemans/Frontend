@@ -4,6 +4,7 @@ import AddProduct from './pages/AddProduct';
 import Content from './pages/Content';
 import Pizzas from './pages/Pizzas';
 import UpdateProduct from './pages/UpdateProduct';
+import Chatroom from './Components/Chatroom';
 
 export const FrontendRoutes  = () => {
   return (
