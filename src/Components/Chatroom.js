@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import {over} from 'stompjs'
 import Sockjs from 'sockjs-client';
-import '../Components/Chatroom.css'
+
+
 
 var stompClient = null;
 const Chatroom = () => {
@@ -96,7 +97,7 @@ const Chatroom = () => {
                 status:'MESSAGE'
             };
             if(userData.username !==tab){
-                privateChats.set(tab).push(chatMessage);
+                privateChats.get(tab).push(chatMessage);
                 setPrivateChats(new Map(privateChats)); 
             }
             stompClient.send('/app/private-message', {}, JSON.stringify(chatMessage));

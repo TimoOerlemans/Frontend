@@ -5,6 +5,7 @@ import '../Components/Header.css';
 function Header() {
   
   return(
+    <div data-testid="header" className="header">
   <Navbar bg="dark" variant="dark" 
     sticky="top" expand="sm" collapseOnSelect>
     <Navbar.Brand>
@@ -24,6 +25,7 @@ function Header() {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
+    </div>
   )
 }
 
