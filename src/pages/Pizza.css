@@ -1,0 +1,36 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+  
+}
+.card-body {
+  border-radius: 10%;
+  border-color: black;
+}
+  
+.card {
+ border-color: black;
+ border-radius: 5%;
+ width: 300px;
+ margin-top: 30px;
+position: relative;
+display: flex;
+margin-left: 20px;
+
+}
+.img{
+  width: 50px;
+  height: 50px;
+}
+.Delete{
+  width: 60px;
+  height: 40px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

@@ -1,0 +1,65 @@
+stages:          # List of stages for jobs, and their order of execution
+  - react-build
+  - react-test
+  - docker-build
+  - docker-deploy
+
+build:
+  stage: react-build
+  tags:
+    - dockerpwrsh
+  image: node
+  script: 
+    - echo "Start building App"
+    - npm install
+    - npm run build
+    - echo "Build successfully!"
+  artifacts:
+      expire_in: 1 hour
+      paths:
+        - build
+        - node_modules/
+
+test:
+  stage: react-test
+  tags:
+    - dockerpwrsh
+  image: node
+  script:
+    - echo "Testing App"
+    - npm test
+    - echo "Test successfully!"
+ 
+
+docker-build:
+  stage: docker-build
+
+  tags:
+    - dockerpwrsh
+
+  image: docker:stable
+
+  only:
+    - main
+  before_script:
+  - echo -n $CI_REGISTRY_TOKEN | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
+  script:
+    - docker build --tag ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHA} .
+
+docker-deploy:
+  stage: docker-deploy
+
+  tags:
+    - dockerpwrsh
+
+  image: docker:stable
+
+  only:
+    - main
+
+  before_script:
+  - echo -n ${CI_REGISTRY_TOKEN} | docker login -u "${CI_REGISTRY_USER}" --password-stdin ${CI_REGISTRY}
+
+  script:
+    - docker tag ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHA} ${CI_REGISTRY_IMAGE}:front-end
+    - docker push ${CI_REGISTRY_IMAGE}:front-end
